@@ -16,6 +16,17 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div>
+                @if (session()->has('message'))
+                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 my-3 rounded relative"
+                        role="alert">
+                        <span class="block sm:inline">
+                            {{ session('message') }}
+                        </span>
+                    </div>
+                @endif
+            </div>
+
             <table class="table-auto w-full md:px-16">
                 <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-100 dark:bg-gray-800">
                     <tr>

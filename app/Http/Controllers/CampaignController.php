@@ -84,6 +84,8 @@ class CampaignController extends Controller
     function sendMail(Campaign $campaign) {
         SendEmailJob::dispatch($campaign);
 
+        session()->flash('message', 'Le mail della campagna "' . $campaign->name . '" sono state inviate');
+
         return to_route('campaign.index');
     }
 }
