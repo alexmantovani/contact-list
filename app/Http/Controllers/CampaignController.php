@@ -45,6 +45,8 @@ class CampaignController extends Controller
             'body' => $request->body,
             'mailing_list_id' => $request->mailing_list_id,
         ]);
+
+        return to_route('campaign.index');
     }
 
     /**
@@ -81,5 +83,7 @@ class CampaignController extends Controller
 
     function sendMail(Campaign $campaign) {
         SendEmailJob::dispatch($campaign);
+
+        return to_route('campaign.index');
     }
 }

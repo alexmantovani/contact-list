@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
 
         // \App\Models\User::factory(10)->create();
         \App\Models\User::factory()
-            ->has(\App\Models\Contact::factory()->count(1000))
+            ->has(\App\Models\Contact::factory()->count(50))
             ->create([
                 'name' => 'Mario Pompeo',
                 'email' => 'a@a.a',
