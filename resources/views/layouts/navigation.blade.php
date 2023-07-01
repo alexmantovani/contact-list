@@ -19,7 +19,19 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.*')">
-                        {{ __('Contacts') }}
+                        {{ __('Contatti') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('mailing_list.index')" :active="request()->routeIs('mailing_list.*')">
+                        {{ __('Mailing list') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('campaign.index')" :active="request()->routeIs('campaign.*')">
+                        {{ __('Campagne') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -79,6 +91,10 @@
 
             <x-responsive-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.*')">
                 {{ __('Contacts') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('mailing_list.index')" :active="request()->routeIs('mailing_list.*')">
+                {{ __('Mailing list') }}
             </x-responsive-nav-link>
         </div>
 

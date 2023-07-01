@@ -16,4 +16,9 @@ class Contact extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function mailingLists()
+    {
+        return $this->belongsToMany(MailingList::class);
+    }
+
 }

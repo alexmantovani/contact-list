@@ -46,7 +46,17 @@ class User extends Authenticatable
 
     public function contacts()
     {
-        return $this->hasMany(Contact::class);
+        return $this->hasMany(Contact::class)
+            ->orderBy('name');
     }
 
+    public function mailingLists()
+    {
+        return $this->hasMany(MailingList::class);
+    }
+
+    public function campaigns()
+    {
+        return $this->hasMany(Campaign::class);
+    }
 }

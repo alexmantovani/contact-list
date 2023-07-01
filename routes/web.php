@@ -28,6 +28,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('contact', App\Http\Controllers\ContactController::class);
+    Route::resource('mailing_list', App\Http\Controllers\MailingListController::class);
+    Route::resource('campaign', App\Http\Controllers\CampaignController::class);
+
+    Route::get('campaign/{campaign}/send', [App\Http\Controllers\CampaignController::class, 'sendMail'])->name('campaign.send');
 
 });
 

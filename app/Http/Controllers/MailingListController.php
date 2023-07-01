@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreMailingListRequest;
 use App\Http\Requests\UpdateMailingListRequest;
 use App\Models\MailingList;
+use Illuminate\Support\Facades\Auth;
 
 class MailingListController extends Controller
 {
@@ -13,7 +14,9 @@ class MailingListController extends Controller
      */
     public function index()
     {
-        //
+        $mailingLists = Auth::user()->mailingLists;
+
+        return view('mailing-list.index', compact('mailingLists'));
     }
 
     /**
@@ -21,7 +24,10 @@ class MailingListController extends Controller
      */
     public function create()
     {
-        //
+        $contacts = Auth::user()
+            ->contacts;
+
+        return view('mailing-list.create', compact('contacts'));
     }
 
     /**
@@ -29,7 +35,13 @@ class MailingListController extends Controller
      */
     public function store(StoreMailingListRequest $request)
     {
-        //
+        $mailingList = Auth::user()->mailingLists()->create([
+            'name' => $request->name,
+        ]);
+
+        $mailingList->contacts()->sync($request->contacts);
+
+        return to_route('mailing_list.index');
     }
 
     /**
@@ -45,7 +57,10 @@ class MailingListController extends Controller
      */
     public function edit(MailingList $mailingList)
     {
-        //
+        $contacts = Auth::user()
+            ->contacts;
+
+        return view('mailing-list.edit', compact('contacts', 'mailingList'));
     }
 
     /**
@@ -53,7 +68,13 @@ class MailingListController extends Controller
      */
     public function update(UpdateMailingListRequest $request, MailingList $mailingList)
     {
-        //
+        $mailingList->update([
+            'name' => $request->name,
+        ]);
+
+        $mailingList->contacts()->sync($request->contacts);
+
+        return to_route('mailing_list.index');
     }
 
     /**
@@ -61,6 +82,8 @@ class MailingListController extends Controller
      */
     public function destroy(MailingList $mailingList)
     {
-        //
+        $mailingList->delete();
+
+        return to_route('mailing_list.index');
     }
 }

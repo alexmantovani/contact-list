@@ -14,7 +14,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Auth::user()->contacts;
+        $contacts = Auth::user()->contacts()->paginate(100);
 
         return view('contact.index', compact('contacts'));
     }
@@ -24,7 +24,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('contact.create');
     }
 
     /**
@@ -32,7 +32,14 @@ class ContactController extends Controller
      */
     public function store(StoreContactRequest $request)
     {
-        //
+        Auth::user()->contacts()->create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'note' => $request->note,
+        ]);
+
+        return to_route('contact.index');
     }
 
     /**
