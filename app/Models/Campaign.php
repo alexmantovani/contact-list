@@ -11,6 +11,8 @@ class Campaign extends Model
 
     protected $guarded = [];
 
+    protected $casts = [ 'sent_at'=>'datetime'];
+
     public function mailingList()
     {
         return $this->belongsTo(MailingList::class);

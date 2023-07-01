@@ -90,11 +90,15 @@
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.*')">
-                {{ __('Contacts') }}
+                {{ __('Contatti') }}
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('mailing_list.index')" :active="request()->routeIs('mailing_list.*')">
                 {{ __('Mailing list') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('campaign.index')" :active="request()->routeIs('campaign.*')">
+                {{ __('Campagne') }}
             </x-responsive-nav-link>
         </div>
 

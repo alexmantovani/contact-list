@@ -8,6 +8,7 @@ use App\Models\Campaign;
 use Illuminate\Support\Facades\Auth;
 
 use App\Jobs\SendEmailJob;
+use Illuminate\Support\Carbon;
 
 class CampaignController extends Controller
 {
@@ -83,6 +84,10 @@ class CampaignController extends Controller
 
     function sendMail(Campaign $campaign) {
         SendEmailJob::dispatch($campaign);
+
+        $campaign->update([
+            'sent_at' => now(),
+        ]);
 
         session()->flash('message', 'Le mail della campagna "' . $campaign->name . '" sono state inviate');
 

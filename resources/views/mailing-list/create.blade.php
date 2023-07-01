@@ -14,11 +14,11 @@
         </div>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-1 md:py-12">
         <form method="POST" action="{{ route('mailing_list.store') }}">
             @csrf
 
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-1 sm:px-6 lg:px-8">
                 <div class="pb-8">
                     <x-input-label for="name" :value="__('Name')" />
                     <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"
@@ -27,7 +27,7 @@
                 </div>
 
                 <x-input-label for="contacts" :value="__('Contatti')" />
-                <div class="grid grid-cols-4 border border-spacing-3 px-3">
+                <div class="grid grid-cols-2 md:grid-cols-4 border border-spacing-3 px-3">
                     @foreach ($contacts as $contact)
                         <div class="flex items-center space-x-3 space-y-3">
                             <div class="pt-2  ">

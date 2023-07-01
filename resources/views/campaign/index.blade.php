@@ -14,8 +14,8 @@
         </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="py-1 md:py-12">
+        <div class="max-w-7xl mx-auto px-1 sm:px-6 lg:px-8">
             <div>
                 @if (session()->has('message'))
                     <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 my-3 rounded relative"
@@ -33,8 +33,11 @@
                         <th class="p-2 whitespace-nowrap">
                             <div class="font-semibold text-left">Nome</div>
                         </th>
-                        <th class="p-2 hidden md:table-cell">
-                            <div class="font-semibold text-left">Contatti</div>
+                        <th class="p-2 ">
+                            <div class="font-semibold text-right">Contatti</div>
+                        </th>
+                        <th class="p-2 ">
+                            <div class="font-semibold text-right">Spedita</div>
                         </th>
                         <th></th>
                     </tr>
@@ -45,23 +48,28 @@
                     @foreach ($campaigns as $campaign)
                         <tr class="">
                             <td>
-                                <a class="text-gray-800 font-semibold dark:text-gray-200 py-2 text-lg"
+                                <a class="text-gray-800 font-semibold dark:text-gray-200 py-2 text-md md:text-lg"
                                     href="{{ route('campaign.edit', $campaign) }}">
                                     {{ $campaign->name }}
                                 </a>
                             </td>
                             <td class="p-2 md:table-cell">
-                                <div class="text-gray-600 dark:text-gray-400 text-lg">
+                                <div class="text-gray-600 dark:text-gray-400 text-md md:text-lg text-right">
                                     {{ $campaign->mailingList->contacts->count() }}
                                 </div>
                             </td>
-                            <td class="w-8">
-                                <a href="{{ route("campaign.send", $campaign) }}">
+                            <td class="p-2 md:table-cell">
+                                <div class="text-gray-600 dark:text-gray-400 text-md md:text-lg text-right">
+                                    {{ $campaign->sent_at->translatedFormat('d M Y') }}
+                                </div>
+                            </td>
+                            <td class="w-8 px-3">
+                                <a href="{{ route('campaign.send', $campaign) }}"
+                                    onclick="return confirm('Vuoi davvero inviare la mail di questa campagna?');">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                        <title>Invia email</title>
                                         <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                                            d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                                     </svg>
                                 </a>
                             </td>

@@ -12,18 +12,18 @@
         </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="py-1 md:py-12">
+        <div class="max-w-7xl mx-auto px-1 sm:px-6 lg:px-8">
             {{-- <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
                 </div>
             </div> --}}
 
-            <table class="table-auto w-full">
+            <table class="table-auto w-full ">
                 <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-200 dark:bg-gray-800">
                     <tr>
-                        <th class="p-1 whitespace-nowrap">
+                        <th class="p-1 ">
                             <div class="font-semibold text-left">Nome</div>
                         </th>
                         <th class="p-1 ">
@@ -53,8 +53,8 @@
                                     {{ $contact->email }}
                                 </div>
                             </td>
-                            <td>
-                                <div class="text-gray-600 dark:text-gray-400 text-md md:text-base">
+                            <td class="hidden md:table-cell">
+                                <div class="text-gray-600 dark:text-gray-400 text-xs md:text-base">
                                 {{ $contact->phone }}
                                 </div>
                             </td>

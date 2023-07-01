@@ -14,8 +14,8 @@
         </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="py-1 md:py-12">
+        <div class="max-w-7xl mx-auto px-1 sm:px-6 lg:px-8">
             <table class="table-auto w-full md:px-16">
                 <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-100 dark:bg-gray-800">
                     <tr>
@@ -34,12 +34,12 @@
                     @foreach ($mailingLists as $mailList)
                         <tr class="">
                             <td>
-                                <a class="text-gray-800 font-semibold dark:text-gray-200 py-2 text-lg" href="{{ route('mailing_list.edit', $mailList) }}">
+                                <a class="text-gray-800 font-semibold dark:text-gray-200 py-2 text-md md:text-lg" href="{{ route('mailing_list.edit', $mailList) }}">
                                     {{ $mailList->name }}
                                 </a>
                             </td>
                             <td class="p-2 md:table-cell">
-                                <div class="text-gray-600 dark:text-gray-400 text-lg">
+                                <div class="text-gray-600 dark:text-gray-400 text-md md:text-lg">
                                     {{ $mailList->contacts->count() }}
                                 </div>
                             </td>
