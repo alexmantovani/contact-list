@@ -17,12 +17,12 @@
     <div class="py-1 md:py-12">
         <div class="max-w-7xl mx-auto px-1 sm:px-6 lg:px-8">
             <table class="table-auto w-full md:px-16">
-                <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-100 dark:bg-gray-800">
+                <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-200 dark:bg-gray-800">
                     <tr>
-                        <th class="p-2 whitespace-nowrap">
+                        <th class="p-1 whitespace-nowrap">
                             <div class="font-semibold text-left">Nome</div>
                         </th>
-                        <th class="p-2 hidden md:table-cell">
+                        <th class="p-1 hidden md:table-cell">
                             <div class="font-semibold text-left">Contatti</div>
                         </th>
                         <th></th>

@@ -28,15 +28,15 @@
             </div>
 
             <table class="table-auto w-full md:px-16">
-                <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-100 dark:bg-gray-800">
+                <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-200 dark:bg-gray-800">
                     <tr>
-                        <th class="p-2 whitespace-nowrap">
+                        <th class="p-1 whitespace-nowrap">
                             <div class="font-semibold text-left">Nome</div>
                         </th>
-                        <th class="p-2 ">
+                        <th class="p-1 ">
                             <div class="font-semibold text-right">Contatti</div>
                         </th>
-                        <th class="p-2 ">
+                        <th class="p-1 ">
                             <div class="font-semibold text-right">Spedita</div>
                         </th>
                         <th></th>
